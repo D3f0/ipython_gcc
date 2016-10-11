@@ -43,7 +43,7 @@ class CompileMagic(Magics, Configurable):
 
         # Add ourself to the list of module configurable via %config
         self.shell.configurables.append(self)
-        self.shell.ex('from ipython_gcc import ExecutableRunner')
+        self.shell.ex('from gcc import ExecutableRunner')
 
     @needs_local_scope
     @cell_magic('gcc')
@@ -56,9 +56,12 @@ class CompileMagic(Magics, Configurable):
         if self.run_compiler(name, target):
             retval = ExecutableRunner(target)
             # Hacky way to add this element into the current NS
-            self.shell.ex('{0} = ExecutableRunner("./{0}")'.format(name))
-            print(_("You can now access to the executable with {0} object. i.e.: {0}"
-                    ".run()".format(name)))
+
+            code = '{0} = ExecutableRunner("./{0}")'.format(target)
+            #display(HTML("<pre>%s</pre>" % code))
+            self.shell.ex(code)
+            #print(_("You can now access to the executable with {0} object. i.e.: {0}"
+            #        ".run()".format(name)))
             return retval
 
     def get_target(slef, name):
@@ -89,7 +92,7 @@ class CompileMagic(Magics, Configurable):
         cmd = ' '.join(cmd_list)
         proc = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
         result = proc.wait()
-        print result
+        print(result)
         stdout = proc.stdout.read()
         if stdout.strip():
             print("out:")

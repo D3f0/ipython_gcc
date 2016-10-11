@@ -1,0 +1,6 @@
+INITIAL RELEASE
+===============
+
+Supports writing to files and running GCC on them.
+Not very configurable yet, but mostly usable.
+Heavily inspired on ipython-sql.
