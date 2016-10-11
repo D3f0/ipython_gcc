@@ -28,6 +28,4 @@ Define a gcc cell
 
 TODO
 ====
-
--  Focus error and warngings
--  Auto-import headers based on
+View [current issues](https://github.com/D3f0/ipython_gcc/issues)
