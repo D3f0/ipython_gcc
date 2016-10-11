@@ -7,7 +7,7 @@ README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 
 
-version = '0.3.7.1'
+version = '0.0.1'
 
 install_requires = [
     # 'prettytable',
@@ -16,7 +16,10 @@ install_requires = [
 ]
 
 
-setup(name='ipython-sql',
+packages=find_packages('src')
+
+
+setup(name='ipython-gcc',
     version=version,
     description="A nicer inetraction with plain old C from Python",
     long_description=README + '\n\n' + NEWS,
