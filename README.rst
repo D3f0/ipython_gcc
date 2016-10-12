@@ -8,14 +8,18 @@ Installation
 
 If you are in a terminal, just call
 
-```bash
+```
+
 pip install -e "git+https://github.com/D3f0/ipython_gcc.git"
+
 ```
 
 If already inside IPython/Jupyter
 
 ```
+
 !pip install -e "git+https://github.com/D3f0/ipython_gcc.git"
+
 ```
 
 
@@ -42,4 +46,4 @@ Define a gcc cell
 TODO
 ====
 
-View [current issues](https://github.com/D3f0/ipython_gcc/issues)
+View current [issues](https://github.com/D3f0/ipython_gcc/issues)
