@@ -57,7 +57,7 @@ class CompileMagic(Magics, Configurable):
             retval = ExecutableRunner(target)
             # Hacky way to add this element into the current NS
 
-            code = '{0} = ExecutableRunner("./{0}")'.format(target)
+            code = '{0} = ExecutableRunner("{0}")'.format(target)
             #display(HTML("<pre>%s</pre>" % code))
             self.shell.ex(code)
             #print(_("You can now access to the executable with {0} object. i.e.: {0}"
