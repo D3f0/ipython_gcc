@@ -6,12 +6,13 @@ This IPython extensions provides an easy interface to work with C code.
 Installation
 ------------
 
-If you are in a terminal, just call:
+If you are in a terminal, just call
+
 ```bash
 pip install -e "git+https://github.com/D3f0/ipython_gcc.git"
 ```
 
-If already inside IPython/Jupyter:
+If already inside IPython/Jupyter
 
 ```
 !pip install -e "git+https://github.com/D3f0/ipython_gcc.git"
