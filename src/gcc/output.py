@@ -1,5 +1,6 @@
 from subprocess import Popen, PIPE
 from contextlib import contextmanager
+from copy import copy # Shallow copy
 
 
 @contextmanager
@@ -16,8 +17,13 @@ class ExecutableRunner(object):
     def __init__(self, name):
         self.name = name
 
-    def run(self, *args):
+    def run(self, *args, **kwargs):
+        """
+        Execute command
+        """
         cmd = [self.name, ]
+        # TODO: Detect list, tuples or iterables to run many times
+
         cmd.extend(map(str, args))
         with run_process(cmd, stdout=PIPE, stderr=PIPE) as (res, proc):
             # print result
@@ -45,3 +51,13 @@ class ExecutableRunner(object):
         return './{}'.format(self.name)
 
     __repr__ = __str__
+
+    def env(self, *args, **kwargs):
+        """
+        obj.env(PATH='/home')
+        """
+        if args:
+            raise KeyError("Should only be used with env(ENV=val)")
+        with_env = copy(self)
+        with_env.env.update(**kwargs)
+        return with_env
